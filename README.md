@@ -30,11 +30,44 @@ Nesta primeira etapa, implementamos um modelo de Rede Neural Artificial (MLPClas
 * Foi gerada uma matriz de confusão para analisar visualmente a performance do modelo.
 
 **Resultados obtidos**
-* Acurácia: 94%
+* Acurácia: 0.94
 * Matriz de confusão:
- ![Matriz de confusão](./matriz1.png "Matrz de confusão")
+ ![Matriz de confusão](./matriz1.png "Matriz de confusão")
 
 #### Fase 2
+
+Nesta segunda etapa, foi implementada a técnica de normalização dos dados através da classe StandardScaler da biblioteca scikit-learn. A normalização é uma etapa importante em redes neurais, pois garante que todos os atributos estejam na mesma escala, o que facilita o aprendizado do modelo e previne que as variáveis com maior amplitude dominem o processo de treinamento.
+Após a aplicação da normalização, a acurácia do modelo apresentou um aumento de 0.01 em relação à versão anterior que utilizava os dados sem pré-processamento.
+
+**Alterações feitas**
+* Normalização com **StandardScaler**:
+ ![Normalização](./normalized.png "Normalização")
+
+
+**Resultados obtidos**
+* Acurácia: 0.95
+* Matriz de confusão:
+ ![Matriz de confusão](./matriz2.png "Matriz de confusão")
+
+
+#### Fase 3
+
+Para otimizar o desempenho, foi realizada uma alteração na arquitetura, utilizando agora duas camadas ocultas com 115 e 20 neurônios, respectivamente. Anteriormente, utilizávamos a configuração padrão da rede neural, onde o MLPClassifier do scikit-learn cria uma única camada oculta com 100 neurônios. Ao adicionar camadas ocultas e ajustar o número de neurônios em cada camada, buscamos encontrar um equilíbrio melhor entre capacidade de modelagem e regularização. 
+Na primeira camada os 115 neurônios, um número relativamente alto, nos ajuda a garantir que o modelo tenha a capacidade de capturar relações não-lineares e características complexas presentes nos dados. 
+Na segunda camada, utilizamos um número menor de neurônios para ajudar a refinar os padrões capturados pela primeira camada, agindo como um "funil".
+Obtivemos uma pequena melhora na acurácia do modelo em relação à configuração padrão. As espécies que anteriormente classificava 16 e 28 erroneamente, passaram a classificar 15 e 24 erroneamente.
+
+**Alterações feitas**
+* Adicionado duas camadas ocultas:
+ ![Camadas](./camadas.png "Camadas")
+
+**Resultados obtidos**
+* Acurácia: 0.95
+* Matriz de confusão:
+ ![Matriz de confusão](./matriz3.png "Matriz de confusão")
+
+
+
 
 
 

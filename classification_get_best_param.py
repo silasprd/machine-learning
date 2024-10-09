@@ -20,11 +20,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 model = MLPClassifier(max_iter=1)
 
 parameter_space = {
-    'hidden_layer_sizes': [(50,50,50), (100,100,100), (50,100,50), (100,50,50), (50,50,100), (100,100,50), (50,100,100)],
-    'activation': ['tanh', 'relu', 'logistic', 'identity'],
+    'hidden_layer_sizes': [(150, 150, 150), (100, 100, 300)],
+    'activation': ['tanh', 'relu'],
     'solver': ['sgd', 'adam', 'lbfgs'],
-    'alpha': [0.0001, 0.05, 0.1],
-    'learning_rate': ['constant','adaptive', 'invscaling'],
+    'alpha': [0.0001, 0.1, 0.5],
+    'learning_rate': ['constant','adaptive']
 }
 
 clf = GridSearchCV(model, parameter_space, n_jobs=-1, cv=5)

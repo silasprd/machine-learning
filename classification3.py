@@ -22,7 +22,7 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 # Instanciates a neural network classifier type with maximum of 2000 epochs 
-model = MLPClassifier(random_state=1, max_iter=2000)
+model = MLPClassifier(random_state=1, max_iter=2000, hidden_layer_sizes=(115, 20))
 
 # Train model
 model.fit(X_train_scaled, y_train)
