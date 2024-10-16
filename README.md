@@ -1,6 +1,10 @@
 # Modelo de Classificação - Machine Learning
 
-## Este repositório contém a implementação de algoritmos de machine learning focados na classificação de espécies de peixes com base em atributos físicos como comprimento e peso. 
+**Este repositório contém a implementação de algoritmos de machine learning focados na classificação de espécies de peixes com base em atributos físicos como comprimento e peso.**
+* Utilizamos uma base de dados disponível no kaggles: https://www.kaggle.com/datasets/taweilo/fish-species-sampling-weight-and-height-data
+* Esta base de dados trás os atributos Species, length e weight.
+* **Variável alvo(target):** Utilizamos o atributo **"species"** como target, que serão as entradas que o modelo irá prever.
+* **Variáveis preditoras(features):** As entradas que o modelo usa para fazer as previsões são **"lenght e weight"**.  
 
 #### Utilizando Redes Neurais Artificiais (RNA), juntamente com outros algoritmos de classificação, o projeto busca:
 
@@ -17,22 +21,26 @@ Nesta primeira etapa, implementamos um modelo de Rede Neural Artificial (MLPClas
 * Leitura da base de dados.
 * Mapeamento das espécies para valores numéricos.
 * Definição das features (variáveis preditoras) como comprimento e peso.
+![Pré processamento](./images/pre_proccess.png "Pré processamento")
 
 **2. Divisão dos Dados**
 * Divisão dos dados em conjuntos de treinamento e teste, sendo 80% para treinamento e 20% para teste.
+![Divisão dos dados](./images/data_div.png "Divisão dos dados")
   
 **3. Criação e treinamento do modelo**
 * Um classificador MLP com um máximo de 2000 iterações foi instanciado.
 * O modelo foi treinado com os dados de treinamento.
+![Criação e Treinamento](./images/data_div.png "Criação e Treinamento")
 
 **4. Avaliação do modelo**
 * O modelo foi testado com os dados de teste, e a acurácia foi medida.
 * Foi gerada uma matriz de confusão para analisar visualmente a performance do modelo.
+![Resultado](./images/result.png "Resultado")
 
 **Resultados obtidos**
 * Acurácia: 0.94
 * Matriz de confusão:
- ![Matriz de confusão](./matriz1.png "Matriz de confusão")
+ ![Matriz de confusão](./images/matriz1.png "Matriz de confusão")
 
 #### Fase 2
 
@@ -41,13 +49,15 @@ Após a aplicação da normalização, a acurácia do modelo apresentou um aumen
 
 **Alterações feitas**
 * Normalização com **StandardScaler**:
- ![Normalização](./normalized.png "Normalização")
+
+ ![Normalização](./images/normalized.png "Normalização")
 
 
 **Resultados obtidos**
 * Acurácia: 0.95
 * Matriz de confusão:
- ![Matriz de confusão](./matriz2.png "Matriz de confusão")
+
+ ![Matriz de confusão](./images/matriz2.png "Matriz de confusão")
 
 
 #### Fase 3
@@ -59,12 +69,14 @@ Obtivemos uma pequena melhora na acurácia do modelo em relação à configuraç
 
 **Alterações feitas**
 * Adicionado duas camadas ocultas:
- ![Camadas](./camadas.png "Camadas")
+
+ ![Camadas](./images/camadas.png "Camadas")
 
 **Resultados obtidos**
 * Acurácia: 0.95
 * Matriz de confusão:
- ![Matriz de confusão](./matriz3.png "Matriz de confusão")
+
+ ![Matriz de confusão](./images/matriz3.png "Matriz de confusão")
 
 
 
