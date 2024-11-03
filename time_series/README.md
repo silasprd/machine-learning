@@ -38,8 +38,8 @@ Nesta implementação utilizamos o modelo ARIMA (AutoRegressive Integrated Movin
 ![Gráfico treino e teste](./images/graph-2.png "Gráfico treino e teste")
 
 **5. Criação do modelo**
-* Instanciação do modelo ARIMA para capturar padrões temporais nos dados de treino normalizados.
-* Utilizamos os parâmetros (5,2,1) (comportamento autoregressivo, diferenciação, componente de média móvel).
+* Instanciação do modelo ARIMA para capturar padrões temporais nos dados de treino.
+* Utilizamos os parâmetros (5,2,1) (comportamento autoregressivo, diferenciação, componente de média móvel).Cx
 ![Criação do modelo](./images/train-model.png "Criação do modelo")
 
 **6. Previsão**
@@ -76,4 +76,7 @@ Testamos também o modelo SARIMA (Seasonal AutoRegressive Integrated Moving Aver
 ![Previsão SARIMA](./images/SARIMA-predictions.png "Previsão SARIMA")
 ![Gráfico de avalição SARIMA](./images/SARIMA-graph.png "Gráfico de avalição SARIMA")
 
-#### PROPHET
+#### CONCLUSÃO
+
+O modelo ARIMA apresenta uma tendência geral de previsão precisa, porém, ele não considera sazonalidades explícitas nos dados. Isso pode resultar em previsões adequadas para séries que exibem tendências de longo prazo sem flutuações sazonais marcantes.
+Já o modelo SARIMA mostra previsões que se ajustam com maior precisão às oscilações dos dados. Esse modelo é particularmente útil para séries temporais que apresentam sazonalidade, pois considera tanto o padrão de tendência quanto a repetição cíclica dos dados, aprimorando a capacidade de previsão em períodos onde essas flutuações são significativas.
