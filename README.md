@@ -1,4 +1,4 @@
-# Modelo de Séries Temporais - Machine Learning
+# Machine Learning
 
 ## Objetivo do repositório
 
