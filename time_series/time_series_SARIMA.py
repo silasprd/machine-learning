@@ -43,7 +43,7 @@ model_fit = model.fit()
 
 # Predictions
 predictions_log = model_fit.forecast(steps=steps)
-predictions = np.exp(predictions_log)  # Reverter a transformação logarítmica
+predictions = np.exp(predictions_log)  # Revert logarithmic transformation
 
 # Convert predictions to DataFrame for viewing
 predictions_df = pd.Series(predictions, index=data_test.index, name='Predictions')

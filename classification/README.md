@@ -25,12 +25,12 @@ Nesta primeira etapa, implementamos um modelo de Rede Neural Artificial (MLPClas
 
 **2. Divisão dos Dados**
 * Divisão dos dados em conjuntos de treinamento e teste, sendo 80% para treinamento e 20% para teste.
-![Divisão dos dados](./images/data_div.png "Divisão dos dados")
+![Divisão dos dados](./images/split_data.png "Divisão dos dados")
   
 **3. Criação e treinamento do modelo**
 * Um classificador MLP com um máximo de 2000 iterações foi instanciado.
 * O modelo foi treinado com os dados de treinamento.
-![Criação e Treinamento](./images/data_div.png "Criação e Treinamento")
+![Criação e Treinamento](./images/train_model.png "Criação e Treinamento")
 
 **4. Avaliação do modelo**
 * O modelo foi testado com os dados de teste, e a acurácia foi medida.
