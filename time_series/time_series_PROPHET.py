@@ -25,13 +25,6 @@ steps = 30
 data_train = data[:-steps].copy()
 data_test = data[-steps:].copy()
 
-# Normalize training series
-scaler = StandardScaler()
-data_train_scaled = scaler.fit_transform(data_train[['Total']])
-data_test_scaled = scaler.transform(data_test[['Total']])
-data_train['Total'] = data_train_scaled
-data_test['Total'] = data_test_scaled
-
 # Plot the data to see how 'Total' behaves over time
 fig, ax = plt.subplots(figsize=(10, 5))
 data_train['Total'].plot(ax=ax, label='train')
@@ -51,11 +44,6 @@ future = model.make_future_dataframe(periods=steps, freq='YE')
 predictions = model.predict(future)
 
 prediction_test = predictions[['ds', 'yhat']].set_index('ds').iloc[-steps:]
-prediction_test['yhat'] = scaler.inverse_transform(prediction_test[['yhat']])
-
-# Revert the normalization of training and test data for viewing
-data_test['Total'] = scaler.inverse_transform(data_test['Total'].values.reshape(-1, 1))
-data_train['y'] = scaler.inverse_transform(data_train['y'].values.reshape(-1, 1))
 
 # Plot predictions and compare with real values
 plt.figure(figsize=(10, 5))

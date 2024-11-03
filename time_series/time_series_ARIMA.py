@@ -38,7 +38,7 @@ model_fit = model.fit()
 # Predictions
 predictions = model_fit.forecast(steps=steps)
 predictions = pd.Series(predictions, index=data_test.index)
-predictions_df = pd.DataFrame(predictions.values.reshape(-1, 1), index=data_test.index, columns=['Predictions'])
+predictions_df = pd.DataFrame(predictions.values, index=data_test.index, columns=['Predictions'])
 
 # Plot predictions and compare with real values
 fig, ax = plt.subplots(figsize=(9, 4))
@@ -46,9 +46,6 @@ data_train['Total'].plot(ax=ax, label='train')
 data_test['Total'].plot(ax=ax, label='test')
 predictions_df['Predictions'].plot(ax=ax, label='predictions', color='green')
 ax.legend()
-
-# Disable scientific notation on the y-axis
-ax.ticklabel_format(style='plain', axis='y')
 
 # Display forecast
 plt.show()
