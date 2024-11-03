@@ -25,11 +25,6 @@ steps = 30
 data_train = data[:-steps].copy()
 data_test = data[-steps:].copy()
 
-# Normalize training series
-scaler = StandardScaler()
-data_train_scaled = scaler.fit_transform(data_train[['Total']])
-data_test_scaled = scaler.transform(data_test[['Total']])
-
 # Plot training and test data
 fig, ax = plt.subplots(figsize=(9, 4))
 data_train['Total'].plot(ax=ax, label='train')
@@ -43,14 +38,7 @@ model_fit = model.fit()
 # Predictions
 predictions = model_fit.forecast(steps=steps)
 predictions = pd.Series(predictions, index=data_test.index)
-
-# Revert the normalization of predictions
-predictions = scaler.inverse_transform(predictions.values.reshape(-1, 1))
-predictions_df = pd.DataFrame(predictions, index=data_test.index, columns=['Predictions'])
-
-# Revert the normalization of training and test data for viewing
-data_test['Total'] = scaler.inverse_transform(data_test['Total'].values.reshape(-1, 1))
-data_train['Total'] = scaler.inverse_transform(data_train['Total'].values.reshape(-1, 1))
+predictions_df = pd.DataFrame(predictions.values.reshape(-1, 1), index=data_test.index, columns=['Predictions'])
 
 # Plot predictions and compare with real values
 fig, ax = plt.subplots(figsize=(9, 4))
@@ -58,6 +46,9 @@ data_train['Total'].plot(ax=ax, label='train')
 data_test['Total'].plot(ax=ax, label='test')
 predictions_df['Predictions'].plot(ax=ax, label='predictions', color='green')
 ax.legend()
+
+# Disable scientific notation on the y-axis
+ax.ticklabel_format(style='plain', axis='y')
 
 # Display forecast
 plt.show()

@@ -26,6 +26,12 @@ steps = 30
 data_train = data[:-steps].copy()
 data_test = data[-steps:].copy()
 
+# Plot training and test data
+fig, ax = plt.subplots(figsize=(9, 4))
+data_train['Total'].plot(ax=ax, label='train')
+data_test['Total'].plot(ax=ax, label='test')
+ax.legend()
+
 # Apply logarithmic transformation to smooth the series
 data_train_log = np.log(data_train['Total'])
 data_test_log = np.log(data_test['Total'])
@@ -34,17 +40,6 @@ data_test_log = np.log(data_test['Total'])
 # (p, d, q) ARIMA paramaters, e (P, D, Q, S) seasonal parameters
 model = SARIMAX(data_train_log, order=(5,2,0), seasonal_order=(1,1,1,10))
 model_fit = model.fit()
-
-# Normalize training series
-scaler = StandardScaler()
-data_train_scaled = scaler.fit_transform(data_train[['Total']])
-data_test_scaled = scaler.transform(data_test[['Total']])
-
-# Plot training and test data
-fig, ax = plt.subplots(figsize=(9, 4))
-data_train['Total'].plot(ax=ax, label='train')
-data_test['Total'].plot(ax=ax, label='test')
-ax.legend()
 
 # Predictions
 predictions_log = model_fit.forecast(steps=steps)
