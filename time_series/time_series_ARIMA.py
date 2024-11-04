@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
 from statsmodels.tsa.arima.model import ARIMA
 
 # Graph style configuration

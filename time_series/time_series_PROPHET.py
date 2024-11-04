@@ -1,7 +1,6 @@
 import pandas as pd
 from prophet import Prophet
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
 
 # Graph style configuration
 plt.style.use('fivethirtyeight')
